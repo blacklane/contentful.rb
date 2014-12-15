@@ -39,7 +39,7 @@ module Contentful
       if proxy[:host]
         HTTP[headers].via(proxy[:host], proxy[:port], proxy[:username], proxy[:password]).get(url, params: query)
       else
-        HTTP[headers].get(url, params: query)
+        HTTP.get(url, params: query, headers: headers)
       end
     end
 
